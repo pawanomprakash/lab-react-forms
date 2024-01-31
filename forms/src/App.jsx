@@ -21,18 +21,18 @@ function App() {
     let errors={}
     const regex= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
     if(!values.username){
-      errors.username="Username is required";
+      errors.username="Please enter your first name";
     }
     if(!values.lastname){
-      errors.lastname="Lastname is required";
+      errors.lastname="Please enter your lastname";
     }
     if(!values.email){
-      errors.email="Email is required";
+      errors.email="Please enter your email address";
     }else if(!regex.test(values.email)){
       errors.email="Invalid Email Id";
     }
     if(!values.phoneno){
-      errors.phoneno="Phone number is required";
+      errors.phoneno="Please enter your phone number";
     }else if(values.phoneno.length !==10 ) {
       errors.phoneno="Invalid phone number"
     }
@@ -44,16 +44,16 @@ function App() {
 
   return (
     <div id="formContainer">
-      <div id="regStatus">{submit?"Registration successfull":""}</div>
+      <div id="regStatus">{submit?"Registration successfull!":""}</div>
      <form onSubmit={handleSubmit}>
-      <p>{formErrors.username}</p>
       <div><input name="username" type="text" placeholder='First name' value={formValues.username} onChange={handleChange}/></div>
-      <p>{formErrors.lastname}</p>
+      <p>{formErrors.username}</p>
       <div><input name="lastname" type="text" placeholder='Last name' value={formValues.lastname} onChange={handleChange} /></div>
-      <p>{formErrors.email}</p>
+      <p>{formErrors.lastname}</p>
       <div><input name="email" type="text" placeholder='Email-id' value={formValues.email} onChange={handleChange} /></div>
-      <p>{formErrors.phoneno}</p>
+      <p>{formErrors.email}</p>
       <div><input name="phoneno" type="text" placeholder='Phone Number' value={formValues.phoneno} onChange={handleChange} /></div>
+      <p>{formErrors.phoneno}</p>
       <div><input  id="register" type="submit" value='Register' /></div>
      </form>
     </div>
